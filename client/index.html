@@ -1,16 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="hypno_app">
 <head>
 	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Hypnotize Yourself!</title>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script>
+		var hypno_app = angular.module('hypno_app', ['ngRoute']);
+		// routing
+		hypno_app.config(function($routeProvider){
+			$routeProvider
+				.when('/', {
+					templateUrl: 'partials/welcome.html'
+				})
+				.when('/record', {
+					templateUrl: 'partials/record.html'
+				})
+				.otherwise({
+					redirectTo: '/'
+				});
+		});
+
+
+	</script>
 </head>
 <body>
-	hello
+	<div id="mainDiv" ng-view=""></div>
 </body>
 </html>
