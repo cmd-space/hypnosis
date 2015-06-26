@@ -12,9 +12,9 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	<script src='js/record.js'></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.5/p5.min.js'></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.5/addons/p5.sound.min.js'></script>
+	<script src='js/record.js'></script>
 	<link rel="stylesheet" href="/stylesheets/style.css">
 	<script>
 		var hypno_app = angular.module('hypno_app', ['ngRoute']);
@@ -32,7 +32,17 @@
 				});
 		});
 
-
+		hypno_app.controller('RecordController', function($scope){
+			$scope.startEngine = function(){
+				// text to appear after button is clicked
+				var node = document.createElement('P');
+				var appear = document.createTextNode('Hi there!');
+				node.appendChild(appear);
+				document.getElementById('engine').style.display = 'none';
+				document.getElementById('recorder').appendChild(node);
+				// add in a call to record.js function
+			}
+		});
 	</script>
 </head>
 <body>
@@ -46,12 +56,12 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		      <a class="navbar-brand" href="#">Hypnotize Yourself</a>
+		      <a class="navbar-brand" href="#/">Hypnotize Yourself</a>
 		    </div>
 
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
 		      <ul class="nav navbar-nav">
-		        <li class="active"><a href="#">Home<span class="sr-only">(current)</span></a></li>
+		        <li class="active"><a href="#/">Home<span class="sr-only">(current)</span></a></li>
 		        <li><a href="#/record">Record Yourself</a></li>
 		      </ul>
 		    </div>
